@@ -30,7 +30,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #8B0000 0%, #2C0000 50%, #000000 100%);
         }
 
         .particles {
@@ -42,7 +42,7 @@
 
         .particle {
             position: absolute;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 100, 100, 0.15);
             border-radius: 50%;
             animation: float 20s infinite linear;
         }
@@ -73,33 +73,41 @@
             justify-content: center;
             text-align: center;
             color: white;
+            padding: 0 1rem;
         }
 
         .header-content {
             z-index: 2;
             animation: fadeInUp 1s ease-out;
+            max-width: 90%;
         }
 
         .header h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             animation: glow 2s ease-in-out infinite alternate;
         }
 
         @keyframes glow {
             from {
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.3);
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255,100,100,0.3);
             }
             to {
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.5);
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 30px rgba(255,100,100,0.5);
             }
         }
 
         .header h2 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             margin-bottom: 2rem;
             opacity: 0.9;
+        }
+
+        .header p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .scroll-indicator {
@@ -127,7 +135,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(20,0,0,0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
@@ -143,10 +151,12 @@
             display: flex;
             justify-content: center;
             list-style: none;
+            flex-wrap: wrap;
+            padding: 0 1rem;
         }
 
         .nav li {
-            margin: 0 2rem;
+            margin: 0.5rem 1rem;
         }
 
         .nav a {
@@ -154,10 +164,11 @@
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
 
         .nav a:hover {
-            color: #667eea;
+            color: #FF6B6B;
         }
 
         /* Content Sections */
@@ -168,11 +179,11 @@
 
         .section {
             min-height: 100vh;
-            padding: 5rem 2rem;
+            padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
             background: rgba(255,255,255,0.95);
-            margin: 2rem;
+            margin: clamp(1rem, 3vw, 2rem);
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
             opacity: 0;
             transform: translateY(50px);
@@ -185,7 +196,7 @@
         }
 
         .section:nth-child(even) {
-            background: rgba(240,240,255,0.95);
+            background: rgba(250,240,240,0.95);
         }
 
         .container {
@@ -194,10 +205,10 @@
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 6vw, 3rem);
             text-align: center;
             margin-bottom: 3rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #8B0000, #FF6B6B, #2C0000);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -207,16 +218,16 @@
         /* Contact Cards */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
             margin-top: 2rem;
         }
 
         .contact-card {
             background: white;
-            padding: 2rem;
+            padding: clamp(1.5rem, 4vw, 2rem);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(139,0,0,0.15);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: slideInUp 0.6s ease-out;
@@ -224,13 +235,24 @@
 
         .contact-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(139,0,0,0.25);
         }
 
         .contact-icon {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             margin-bottom: 1rem;
-            color: #667eea;
+            color: #8B0000;
+        }
+
+        .contact-card h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #2C0000;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            word-break: break-word;
         }
 
         /* Experience Timeline */
@@ -246,7 +268,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
+            background: linear-gradient(to bottom, #8B0000, #FF6B6B, #2C0000);
             transform: translateX(-50%);
         }
 
@@ -262,9 +284,9 @@
 
         .timeline-content {
             background: white;
-            padding: 2rem;
+            padding: clamp(1.5rem, 4vw, 2rem);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(139,0,0,0.15);
             width: 45%;
             position: relative;
             transition: transform 0.3s ease;
@@ -282,39 +304,61 @@
             transform: scale(1.05);
         }
 
+        .timeline-content h3 {
+            color: #8B0000;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            color: #2C0000;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style-position: inside;
+        }
+
+        .timeline-content li {
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+        }
+
         .timeline-date {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background: #667eea;
+            background: #8B0000;
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-weight: bold;
             white-space: nowrap;
+            font-size: clamp(0.8rem, 2vw, 1rem);
         }
 
         /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
             margin-top: 2rem;
         }
 
         .skill-category {
             background: white;
-            padding: 2rem;
+            padding: clamp(1.5rem, 4vw, 2rem);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(139,0,0,0.15);
             animation: fadeInUp 0.6s ease-out;
         }
 
         .skill-category h3 {
-            color: #667eea;
+            color: #8B0000;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
         }
 
         .skill-tags {
@@ -324,23 +368,28 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #8B0000, #FF6B6B);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             animation: pulse 2s infinite;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
         }
 
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+                box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+                box-shadow: 0 0 0 10px rgba(139, 0, 0, 0);
             }
             100% {
-                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+                box-shadow: 0 0 0 0 rgba(139, 0, 0, 0);
             }
         }
 
@@ -400,18 +449,11 @@
             }
         }
 
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .header h2 {
-                font-size: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
+            .section {
+                margin: 0.5rem;
+                border-radius: 15px;
             }
             
             .timeline::before {
@@ -427,16 +469,101 @@
             .timeline-date {
                 left: 20px;
                 transform: translateY(-50%);
+                font-size: 0.8rem;
+                padding: 0.3rem 0.8rem;
             }
             
             .nav ul {
-                flex-direction: column;
-                text-align: center;
+                justify-content: center;
+                padding: 0 0.5rem;
             }
             
             .nav li {
-                margin: 0.5rem 0;
+                margin: 0.3rem 0.5rem;
             }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .skill-tags {
+                justify-content: center;
+            }
+
+            .header {
+                padding: 0 0.5rem;
+            }
+
+            .scroll-indicator {
+                bottom: 20px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .section {
+                margin: 0.25rem;
+                padding: 2rem 1rem;
+            }
+
+            .timeline-content {
+                width: calc(100% - 40px);
+                margin-left: 40px !important;
+                padding: 1rem;
+            }
+
+            .timeline-date {
+                left: 10px;
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .nav {
+                padding: 0.5rem 0;
+            }
+
+            .nav li {
+                margin: 0.2rem 0.3rem;
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1400px;
+            }
+        }
+
+        /* Profile section text styling */
+        .profile-text {
+            text-align: center;
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* Education card improvements */
+        .education-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .education-card h4 {
+            color: #666;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin: 0.5rem 0;
         }
     </style>
 </head>
@@ -475,7 +602,7 @@
         <section class="section" id="profile">
             <div class="container">
                 <h2 class="section-title">Profile</h2>
-                <div style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                <div class="profile-text">
                     <p>Passionate reader and artisan, eager to join collaborative projects that blend creativity and technology to deliver impactful, human-centered solutions. With extensive experience in web development across multiple technologies and frameworks.</p>
                 </div>
             </div>
@@ -648,7 +775,7 @@
         <section class="section" id="education">
             <div class="container">
                 <h2 class="section-title">Education</h2>
-                <div class="contact-card" style="max-width: 600px; margin: 0 auto;">
+                <div class="contact-card education-card">
                     <div class="contact-icon">🎓</div>
                     <h3>SMKN 13 Bandung</h3>
                     <h4>Rekayasa Perangkat Lunak</h4>
@@ -662,7 +789,7 @@
         // Parallax particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+            const particleCount = window.innerWidth < 768 ? 30 : 50;
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -702,9 +829,10 @@
                 }
             });
 
-            // Parallax effect for background
+            // Parallax effect for background (reduced on mobile)
             const parallaxContainer = document.querySelector('.parallax-container');
-            parallaxContainer.style.transform = `translateY(${scrollY * 0.5}px)`;
+            const parallaxSpeed = window.innerWidth < 768 ? 0.3 : 0.5;
+            parallaxContainer.style.transform = `translateY(${scrollY * parallaxSpeed}px)`;
         }
 
         // Smooth scroll for navigation links
@@ -754,6 +882,19 @@
             });
         }
 
+        // Optimize performance on mobile
+        function optimizeForMobile() {
+            if (window.innerWidth < 768) {
+                // Reduce animation complexity on mobile
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    if (index > 30) {
+                        particle.remove();
+                    }
+                });
+            }
+        }
+
         // Initialize everything
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
@@ -761,27 +902,64 @@
             staggerTimelineAnimations();
             staggerSkillAnimations();
             staggerContactAnimations();
+            optimizeForMobile();
             
             // Initial scroll check
             handleScroll();
         });
 
-        // Scroll event listener
-        window.addEventListener('scroll', handleScroll);
+        // Scroll event listener with throttling for better performance
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(handleScroll);
+                ticking = true;
+                setTimeout(() => { ticking = false; }, 16); // ~60fps
+            }
+        }
+        window.addEventListener('scroll', requestTick);
 
-        // Add mouse parallax effect
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                const speed = (index % 5 + 1) * 0.5;
-                const x = mouseX * speed;
-                const y = mouseY * speed;
+        // Add mouse parallax effect (disabled on mobile for performance)
+        if (window.innerWidth >= 768) {
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
                 
-                particle.style.transform = `translate(${x}px, ${y}px)`;
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    const speed = (index % 5 + 1) * 0.3;
+                    const x = mouseX * speed;
+                    const y = mouseY * speed;
+                    
+                    particle.style.transform = `translate(${x}px, ${y}px)`;
+                });
             });
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            // Recreate particles if screen size changes significantly
+            const currentParticleCount = document.querySelectorAll('.particle').length;
+            const expectedCount = window.innerWidth < 768 ? 30 : 50;
+            
+            if (Math.abs(currentParticleCount - expectedCount) > 10) {
+                document.getElementById('particles').innerHTML = '';
+                createParticles();
+            }
+        });
+
+        // Performance optimization: pause animations when tab is not visible
+        document.addEventListener('visibilitychange', () => {
+            const particles = document.querySelectorAll('.particle');
+            if (document.hidden) {
+                particles.forEach(particle => {
+                    particle.style.animationPlayState = 'paused';
+                });
+            } else {
+                particles.forEach(particle => {
+                    particle.style.animationPlayState = 'running';
+                });
+            }
         });
     </script>
 </body>
