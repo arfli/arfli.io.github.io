@@ -566,231 +566,234 @@
             margin: 0.5rem 0;
         }
 
-/* Project Carousel Styles */
-.carousel-container {
-    position: relative;
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-}
+        /* Project Carousel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            /* overflow: hidden;  <-- REMOVED */
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+        }
 
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    gap: 2rem;
-}
+        /* NEW RULE ADDED */
+        .carousel-viewport {
+            overflow: hidden;
+            border-radius: 20px;
+        }
 
-.carousel-slide {
-    min-width: 100%;
-    flex: 0 0 100%;
-}
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 2rem;
+        }
 
-.project-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(139,0,0,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
+        .carousel-slide {
+            min-width: 100%;
+            flex: 0 0 100%;
+        }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(139,0,0,0.25);
-}
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(139,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-.project-image {
-    background: linear-gradient(135deg, #8B0000 0%, #FF6B6B 50%, #2C0000 100%);
-    position: relative;
-    overflow: hidden;
-}
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(139,0,0,0.25);
+        }
 
-.project-placeholder {
-    width: 100%:
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(5px);
-}
+        .project-image {
+            background: linear-gradient(135deg, #8B0000 0%, #FF6B6B 50%, #2C0000 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
-.project-icon {
-    font-size: 4rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
+        .project-placeholder {
+            width: 100%:
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
 
-.project-content {
-    padding: 2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
+        .project-icon {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-.project-content h3 {
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
-    color: #8B0000;
-    margin-bottom: 1rem;
-    font-weight: bold;
-}
+        .project-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
+        .project-content h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: #8B0000;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
 
-.tech-tag {
-    background: linear-gradient(135deg, #8B0000, #FF6B6B);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
 
-.project-content p {
-    color: #666;
-    line-height: 1.6;
-    font-size: clamp(1rem, 2.2vw, 1.1rem);
-    flex: 1;
-}
+        .tech-tag {
+            background: linear-gradient(135deg, #8B0000, #FF6B6B);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
 
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: linear-gradient(135deg, #8B0000, #FF6B6B);
-    color: white;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(139,0,0,0.3);
-}
+        .project-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: clamp(1rem, 2.2vw, 1.1rem);
+            flex: 1;
+        }
 
-.carousel-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 8px 25px rgba(139,0,0,0.4);
-}
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #8B0000, #FF6B6B);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(139,0,0,0.3);
+        }
 
-.carousel-prev {
-    left: -25px;
-}
+        .carousel-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(139,0,0,0.4);
+        }
 
-.carousel-next {
-    right: -25px;
-}
+        .carousel-prev {
+            left: -25px;
+        }
 
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-}
+        .carousel-next {
+            right: -25px;
+        }
 
-.carousel-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(139,0,0,0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
 
-.carousel-indicator.active {
-    background: #8B0000;
-    transform: scale(1.2);
-}
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(139,0,0,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.carousel-indicator:hover {
-    background: #FF6B6B;
-}
+        .carousel-indicator.active {
+            background: #8B0000;
+            transform: scale(1.2);
+        }
 
-/* Mobile Carousel Styles */
-@media (max-width: 768px) {
-    .carousel-container {
-        padding: 1rem;
-        margin: 0 -0.5rem;
-    }
+        .carousel-indicator:hover {
+            background: #FF6B6B;
+        }
 
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
+        /* Mobile Carousel Styles */
+        @media (max-width: 768px) {
+            .carousel-container {
+                padding: 1rem;
+                margin: 0 -0.5rem;
+            }
 
-    .carousel-prev {
-        left: -20px;
-    }
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
 
-    .carousel-next {
-        right: -20px;
-    }
+            .carousel-prev {
+                left: -20px;
+            }
 
-    .project-image {
-        height: 200px;
-    }
+            .carousel-next {
+                right: -20px;
+            }
 
-    .project-content {
-        padding: 1.5rem;
-    }
+            .project-image {
+                height: 200px;
+            }
 
-    .project-icon {
-        font-size: 3rem;
-    }
+            .project-content {
+                padding: 1.5rem;
+            }
 
-    .tech-tag {
-        font-size: 0.8rem;
-        padding: 0.25rem 0.6rem;
-    }
-}
+            .project-icon {
+                font-size: 3rem;
+            }
 
-@media (max-width: 480px) {
-    .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
+            .tech-tag {
+                font-size: 0.8rem;
+                padding: 0.25rem 0.6rem;
+            }
+        }
 
-    .carousel-prev {
-        left: -17px;
-    }
+        @media (max-width: 480px) {
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
 
-    .carousel-next {
-        right: -17px;
-    }
+            .carousel-prev {
+                left: -17px;
+            }
 
-    .project-content {
-        padding: 1rem;
-    }
+            .carousel-next {
+                right: -17px;
+            }
 
-    .carousel-indicators {
-        margin-top: 1rem;
-    }
+            .project-content {
+                padding: 1rem;
+            }
 
-    .carousel-indicator {
-        width: 10px;
-        height: 10px;
-    }
-}
+            .carousel-indicators {
+                margin-top: 1rem;
+            }
 
-
-
+            .carousel-indicator {
+                width: 10px;
+                height: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1003,103 +1006,88 @@
             <div class="container">
                 <h2 class="section-title">My Contribution</h2>
                 <div class="carousel-container">
-                    <div class="carousel-track" id="carousel-track">
-
-
-                        <!-- Project 2: Indonesian Lelang System -->
-                        <div class="carousel-slide">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <div class="project-placeholder">
-                                        <span class="project-icon">
-											<img src="asset_lelang.jpeg"/>	
-										</span>
+                    <div class="carousel-viewport">
+                        <div class="carousel-track" id="carousel-track">
+                            <!-- Project 2: Indonesian Lelang System -->
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <div class="project-placeholder">
+                                            <span class="project-icon">
+                                                <img src="asset_lelang.jpeg"/>	
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Indonesian E-auction System</h3>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">PHP</span>
+                                            <span class="tech-tag">Symfony</span>
+                                            <span class="tech-tag">PostgreSQL</span>
+                                        </div>
+                                        <p>Comprehensive auction system for Indonesian market, featuring bid management, user authentication, and real-time auction tracking capabilities.</p>
                                     </div>
                                 </div>
-                                <div class="project-content">
-                                    <h3>Indonesian E-auction System</h3>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">PHP</span>
-										<span class="tech-tag">Symfony</span>
-                                        <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <div class="project-placeholder">
+                                            <span class="project-icon">
+                                                <img src="asset_personalia.jpeg"/>	
+                                            </span>
+                                        </div>
                                     </div>
-                                    <p>Comprehensive auction system for Indonesian market, featuring bid management, user authentication, and real-time auction tracking capabilities.</p>
+                                    <div class="project-content">
+                                        <h3>Personalia.id HRIS System</h3>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">PHP</span>
+                                            <span class="tech-tag">CodeIgniter 3</span>
+                                            <span class="tech-tag">MySQL</span>
+                                        </div>
+                                        <p>Complete HRIS management system ranging from user attendance, leave, project management, payroll, etc</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Project 7: Credit Scoring App -->
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <div class="project-placeholder">
+                                            <span class="project-icon">
+                                                <img src="https://master--cute-cucurucho-b82c91.netlify.app/assets/SCORING_SS-41d82a97.png" style="width:100%; height: 100%;"/>	
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Credit Scoring System</h3>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Vue.js</span>
+                                            <span class="tech-tag">Laravel</span>
+                                        </div>
+                                        <p>Financial scoring application for credit guarantee eligibility assessment, featuring advanced algorithms and comprehensive risk analysis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <div class="project-placeholder">
+                                            <span class="project-icon">
+                                                <img src="https://master--cute-cucurucho-b82c91.netlify.app/assets/ADPMET_SS-69846b39.png" style="width:100%; height: 100%;"/>	
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Content Management System, wordpress like</h3>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Laravel</span>
+                                        </div>
+                                        <p>CMS System for Asosiasi Daerah Penghasil Migas dan Energi Terbarukan (ADPMET) where the content is fully dynamic</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
-
-						                        <div class="carousel-slide">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <div class="project-placeholder">
-                                        <span class="project-icon">
-											<img src="asset_personalia.jpeg"/>	
-										</span>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <h3>Personalia.id HRIS System</h3>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">PHP</span>
-										<span class="tech-tag">CodeIgniter 3</span>
-                                        <span class="tech-tag">MySQL</span>
-                                    </div>
-                                    <p>Complete HRIS management system ranging from user attendance, leave, project management, payroll, etc</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    
-
-
-                        <!-- Project 7: Credit Scoring App -->
-                        <div class="carousel-slide">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <div class="project-placeholder">
-                                        <span class="project-icon">
-					<img src="https://master--cute-cucurucho-b82c91.netlify.app/assets/SCORING_SS-41d82a97.png" style="width:100%; height: 100%;"/>	
-					</span>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <h3>Credit Scoring System</h3>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">Vue.js</span>
-                                        <span class="tech-tag">Laravel</span>
-                                    </div>
-                                    <p>Financial scoring application for credit guarantee eligibility assessment, featuring advanced algorithms and comprehensive risk analysis.</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-						                        <div class="carousel-slide">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <div class="project-placeholder">
-                                        <span class="project-icon">
-					<img src="https://master--cute-cucurucho-b82c91.netlify.app/assets/ADPMET_SS-69846b39.png" style="width:100%; height: 100%;"/>	
-					</span>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <h3>Content Management System, wordpress like</h3>
-                                    <div class="project-tech">
-                
-                                        <span class="tech-tag">Laravel</span>
-                                    </div>
-                                    <p>CMS System for Asosiasi Daerah Penghasil Migas dan Energi Terbarukan (ADPMET) where the content is fully dynamic</p>
-                                </div>
-                            </div>
-                        </div>
-
-						
-						
-                        
                     </div>
                     
                     <!-- Carousel Controls -->
